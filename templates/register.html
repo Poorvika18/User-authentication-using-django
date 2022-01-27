@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Signup Page</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: teal;
+            }
+            button{
+                background-color: #000000;
+                width: 25%;
+                padding: 15px;
+                color: rgb(255, 255, 255);
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label{
+                font-size: 20px;
+            }
+            form{
+                border: 2px solid teal;
+            }
+            input[type=email],input[type=text],input[type=password]{
+                width: 30%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid black;
+                box-sizing: border-box;
+                background-color: white;
+            }
+            input[type=radio]{
+                height: 18px;
+                width: 18px;
+            }
+            button:hover{
+                opacity:0.7;
+
+            }
+            .container{
+                padding: 50px;
+                background-color: transparent
+            }
+            .imgcontainer {
+                text-align: center;
+                margin: 1px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 20%;
+                border-radius: 50%;
+            }  
+        </style>
+    </head>
+
+    {% load static %}
+    <body style="background-image: url('{% static 'bg4.png' %}')";>
+        <center><h1>Registration From</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <center><div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'teal-2.png' %}" alt="Avatar" class="avatar">
+                </div>
+                <label for='first_name'><b>First Name : </b></label>
+		        <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+		        <label for='last_name'><b>Last Name :</b></label>
+		        <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+                <label for='username'><b>Username :</b></label>
+		        <input type='text' placeholder='Enter your Username' name='username' required><br>
+            	<label for ='email'><b>  Email Id : </b></label>
+            	<input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
+            	<label for='password'><b>Password : </b></label>
+            	<input type="password" placeholder="Enter Password" name="password" required><br>  
+                <label for='password'><b>Confirm Password : </b></label>
+            	<input type="password" placeholder="Re-Enter Password" name="confirm_password" required><br> 
+            	<button type="submit"><b>Signup</b></button><br>     
+            	Already have an accounct ? <a href="http://localhost:8000/accounts/login/"> Login </a>
+            </div></center>
+        </form>
+        <center><div>
+            {% for message in messages %}
+            <h3>  {{message}}  </h3>
+            {% endfor %}
+        </div></center>
+    </body>
+</html>

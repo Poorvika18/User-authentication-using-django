@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: teal
+            }
+            button{
+                background-color: #000000;
+                width: 10%;
+                padding: 15px;
+                color: white;
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label{
+                font-size: 20px;
+            }
+            form{
+                border: 3px solid teal
+            }
+            input[type=text],input[type=password]{
+                width: 30%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid teal;
+                box-sizing: border-box;
+                background-color: white;
+            }
+            button:hover{
+                opacity:0.7;
+
+            }
+            .container{
+                padding: 50px;
+                background-color: teal
+            }
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+              
+            img.avatar {
+                width: 20%;
+                border-radius: 50%;
+            }  
+        </style>
+    </head>
+    <body>
+        <center><h1>Login Form</h1></center>
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'teal-3.png' %}" alt="Avatar" class="avatar">
+                </div>
+                <label for ='username'><b>Username :  </b></label>
+                <input type="text" placeholder="Enter username" name="username" float="right"  required><br>  
+                <label for='password'><b>Password : </b></label>
+                <input type="password" placeholder="Enter Password" name="password" required><br>  
+                <button type="submit"><b>Login</b></button><br>     
+                Don't have accounct <a href="http://localhost:8000/accounts/register/"> Register here </a>
+            </div></center>
+        </form>
+        <center><div>
+            {% for message in messages %}
+            <h3>  {{message}}  </h3>
+            {% endfor %}
+        </div></center>
+    </body>
+</html>
