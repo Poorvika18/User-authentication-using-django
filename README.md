@@ -19,7 +19,15 @@ DATABASES = {
 }
 
 steps to run:
+Run these steps in the project folder
 1) Run it in your virtual environment
 2) Run the command "python manage.py migrate" to create the default database.
 3) Change the settings.py (feyre/settings.py) as given above
 4) Run the command "python manage.py runserver"
+
+
+feyre-the main app having all the main urls
+home-the home page and everything regarding that
+accounts-has the views and urls regarding the user signup and signin
+static-has the images required
+templates-all the html pages
